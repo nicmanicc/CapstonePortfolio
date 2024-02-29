@@ -1,0 +1,447 @@
+body {
+  margin: 0;
+  background-color: #fffffe;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  height: 100vh;
+}
+.hero-text-container {
+  padding: 5%;
+  grid-row: 4 / 5;
+  grid-column: 2 / span 2;
+}
+.hero-text-container > * {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.hero-title {
+  color: #0099ff;
+  font-size: 25pt;
+}
+.hero-subtitle {
+  color: #3F4756;
+  font-size: 40pt;
+  margin-top: 10px;
+}
+.hero-paragraph {
+  font-family: "Cormorant", sans-serif;
+  color: #A3ABBD;
+  font-size: 15pt;
+  margin-top: 10px;
+}
+
+.hero-link-container > a{
+  text-decoration: none;
+  width: 1px;
+}
+
+.hero-link {
+  width: 40px;
+  margin: 10px 10px 0 0;
+  border-radius: 5px;
+}
+
+.hero-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-row: 2 / 7;
+  grid-column: 4 / 6;
+}
+.hero-image {
+  width: 100%;
+}
+.hero-section-seperator {
+  position: absolute;
+  bottom: 0;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .hero-title {
+    font-size: 20pt;
+  }
+  .hero-subtitle {
+    font-size: 35pt;
+  }
+  .hero-paragraph {
+    font-size: 15pt;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-title {
+    font-size: 15pt;
+  }
+  .hero-subtitle {
+    font-size: 25pt;
+  }
+  .hero-paragraph {
+    font-size: 10pt;
+  }
+  .hero-link {
+    width: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .hero-text-container {
+    grid-row: 2 / 4;
+    grid-column: 2 / 6;
+  }
+  .hero-image-container {
+    grid-row: 4 / 8;
+    grid-column: 2 / 6;
+  }
+}
+
+.resume-section {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #0099ff;
+}
+
+.section-title {
+  color: #fffffe;
+  font-size: 40pt;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.resume-container {
+  position: relative;
+  margin: 0 auto;
+  
+}
+.resume-container > * {
+  box-sizing: border-box;
+}
+
+.resume-container::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.resume-item-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.resume-item-container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #0099ff;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.left .resume-date {
+  order: 1;
+}
+
+.left .resume-item {
+  grid-template-columns: 5fr 1fr;
+}
+
+.right {
+  left: 50%;
+}
+
+.right .resume-date {
+  border-left: 0;
+  border-right: 2px solid #0099ff;
+}
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.right::after {
+  left: -16px;
+}
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.resume-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fffffe;
+  text-align: center;
+  color: #3F4756;
+  border-radius: 5px 0 0 5px;
+  margin-bottom: 10px;
+  border-left: 2px solid #0099ff;
+  border-radius: 0;
+  padding: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  /* Place the timelime to the left */
+    .resume-container::after {
+      left: 31px;
+    }
+  
+  /* Full-width containers */
+    .resume-item-container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+  
+  /* Make sure that all arrows are pointing leftwards */
+    .resume-item-container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+  
+  /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+      left: 15px;
+    }
+  
+  /* Make all right containers behave like the left ones */
+    .right {
+      left: 0%;
+    }
+
+    .left .resume-date {
+      order: 0;
+    }
+    
+    .left .resume-item {
+      grid-template-columns: 1fr 5fr;
+    }
+
+    .resume-date {
+      border-left: 0;
+      border-right: 2px solid #0099ff;
+    }
+  }
+
+.resume-item {
+  padding: 20px 30px;
+  background-color: white;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  
+}
+
+
+
+
+.resume-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 80%;
+  border: 2px #fffffe solid;
+  border-radius: 0 5px 5px 0;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.resume-details p {
+  font-size: 15pt;
+  color: #3F4756;
+  font-family: "Cormorant", sans-serif;
+}
+.resume-details-title {
+  color:#3F4756;
+  font-size: 25pt;
+}
+
+.resume-section > .portfolio-section-title {
+  color: white;
+  margin-bottom: 0;
+}
+.resume-section > .portfolio-section-title > h1 {
+  color: white;
+}
+
+.portfolio-section-title {
+  color: #3F4756;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 5%;
+  padding: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.portfolio-section-title > h1 {
+  color:#0099ff;
+  font-size: 30pt;
+}
+.portfolio-section-title > h2 {
+  font-size: 40pt;
+}
+
+.portfolio-showcase {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 5%;
+}
+.portfolio-showcase-item {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  box-shadow: 0px 8px 12px 3px rgba(0,0,0,0.22);
+  border-radius: 10px;
+}
+
+.portfolio-showcase-summary {
+  min-height: 110px;
+}
+
+.portfolio-showcase-summary, .portfolio-showcase-links {
+  padding: 0 10px 10px 10px;
+}
+
+.portfolio-showcase-summary > h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.portfolio-showcase-summary > p {
+  font-family: "Cormorant", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.portfolio-showcase-links > a {
+  font-family: "Cormorant", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #0099ff;
+}
+
+.portfolio-showcase-links > a:visited {
+  text-decoration: none;
+}
+
+.portfolio-showcase-image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.portfolio-showcase-icon {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+@media (max-width: 1200px) {
+  .portfolio-showcase {
+    flex-wrap: wrap;
+  }
+  .portfolio-showcase-item {
+    flex-basis: 60%;
+    margin-bottom: 20px;
+  }
+}
+
+.skills-section {
+  position: relative;
+  min-height: 80vh;
+  margin-top: 10%;
+}
+
+.skills-section-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.skills-section-item {
+  text-align: center;
+  margin: 10px;
+  flex-basis: 10%
+}
+
+.skills-section-image {
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px -1px 9px 3px rgba(0,0,0,0.20);
+  border-radius: 10px;
+  transition: 1s ease;
+}
+
+.skills-section-image:hover {
+  width: 250px;
+  height: 250px;
+}
+
+footer {
+  height: 20vh;
+  background-color: #0099ff;
+  margin: 0;
+  position: relative;
+  padding-left: 100px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-section-seperator {
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+}
+footer > h1 {
+  margin-top: 0;
+  font-size: 20pt;
+}
+footer > * {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+}
